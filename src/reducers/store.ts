@@ -33,7 +33,7 @@ export function configureStore(initialState?: IRootState) {
   const store = createStore(
     rootReducer,
     initialState!,
-    compose(enhancer, middleware),
+    compose(middleware),
   ) as Store<IRootState>;
 
   return store;

@@ -1,11 +1,14 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import IRootState  from '../../../reducers/store'
+// import IRootState  from '../../../reducers/store'
 import { Language } from '@material-ui/icons';
 import styled from "styled-components";
 
 import { LanguageModal } from './LanguageModal'
+
+import { actions as bannerListing } from '../../../reducers/musicListing/'
+import { IRootState } from '../../../reducers';
 
 
 const StickyTopWrapper = styled.div`
@@ -24,7 +27,12 @@ const NavbarWrapper = styled.div`
   color:#FFF;
 `;
 
-interface IProps {}
+type IStateProps = ReturnType<typeof mapStateToProps>;
+type IDispatchProps = typeof mapDispatchToProps;
+
+type IProps = IStateProps &
+  IDispatchProps & {}
+
 
 interface IState {
     openLanguageModal: boolean;
@@ -53,11 +61,13 @@ class Header extends React.Component<IProps, IState> {
 
     private selectedLanguages = (languages: string[]) => {
         this.setState({ preferredLanguages: languages})
+        this.props.bannerListingData(languages)
     }
 
     public render() {
         const { openLanguageModal, preferredLanguages } = this.state;
-        console.log(preferredLanguages)
+        const {  loading, error, result } = this.props;
+        console.log(result)
         return (
             <>
             <StickyTopWrapper></StickyTopWrapper>
@@ -87,12 +97,12 @@ class Header extends React.Component<IProps, IState> {
     }
 }
 
-const mapStateToProps = (state: any) => ({
-    
+const mapStateToProps = (state: IRootState) => ({
+    ...state.musicListing
 })
 
 const mapDispatchToProps = {
-    
+    bannerListingData: bannerListing.bannerListingData,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header)
