@@ -10,6 +10,9 @@ import { LanguageModal } from './LanguageModal'
 import { actions as bannerListing } from '../../../reducers/musicListing/'
 import { IRootState } from '../../../reducers';
 
+import  Banner  from './Banner';
+import SongListing from './SongListing';
+
 
 const StickyTopWrapper = styled.div`
 height: 3px;
@@ -25,6 +28,10 @@ const NavbarWrapper = styled.div`
   overflow: auto;
   height: 68px;
   color:#FFF;
+`;
+
+const BannerWrapper = styled.div`
+    margin-top: 50px;
 `;
 
 type IStateProps = ReturnType<typeof mapStateToProps>;
@@ -66,8 +73,8 @@ class Header extends React.Component<IProps, IState> {
 
     public render() {
         const { openLanguageModal, preferredLanguages } = this.state;
-        const {  loading, error, result } = this.props;
-        console.log(result)
+        const { loading, error, result } = this.props;
+        
         return (
             <>
             <StickyTopWrapper></StickyTopWrapper>
@@ -91,7 +98,17 @@ class Header extends React.Component<IProps, IState> {
             <LanguageModal 
                 toggleModal={(value) => this.toggleModal(value)}
                 selectedLanguages={(languages) => this.selectedLanguages(languages)}
+                preferredLanguages={preferredLanguages}
             />)}
+            
+            <BannerWrapper>
+                <Banner />
+            </BannerWrapper>
+            {Object.keys(result).length > 0 && (
+            <SongListing 
+            musicData={result}
+            />
+            )}
         </>
         )
     }
