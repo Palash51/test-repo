@@ -21,7 +21,7 @@ export interface IAlbums {
 }
 
 export interface ISongs {
-    cutName: string;
+    title: string;
     language: string;
     previewUrl: string;
     vcode: string;

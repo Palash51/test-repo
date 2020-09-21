@@ -50,25 +50,25 @@ export const musicData: IMusicData = {
     ],
     'songs' : [
         {
-            cutName: "Tum Ko Dekha To Yeh Khayal Aaya",
+            title: "Tum Ko Dekha To Yeh Khayal Aaya",
             language: "Hindi",
             previewUrl: "https://preview-ht.wynk.in/009153000003715.wav",
             vcode: "009153000003715"
         },
         {
-            cutName: "Tum Ko Dekha To Yeh Khayal Aaya",
+            title: "Tum Ko Dekha To Yeh Khayal Aaya",
             language: "Hindi",
             previewUrl: "https://preview-ht.wynk.in/009153000003715.wav",
             vcode: "009153000003716"
         },
         {
-            cutName: "Tum Ko Dekha To Yeh Khayal Aaya",
+            title: "Tum Ko Dekha To Yeh Khayal Aaya",
             language: "English",
             previewUrl: "https://preview-ht.wynk.in/009153000003715.wav",
             vcode: "009153000003717"
         },
         {
-            cutName: "Test song",
+            title: "Test song",
             language: "English",
             previewUrl: "https://preview-ht.wynk.in/009153000003715.wav",
             vcode: "009153000003718"
@@ -78,22 +78,22 @@ export const musicData: IMusicData = {
 
 export const HindiBannerData = [
     {
-        cutName: "Tum Ko Dekha To Yeh Khayal Aaya",
+        title: "Tum Ko Dekha To Yeh Khayal Aaya",
         previewUrl: "https://preview-ht.wynk.in/009153000003715.wav",
         vcode: "009153000003715"
     },
     {
-        cutName: "Tum Ko Dekha To Yeh Khayal Aaya",
+        title: "Tum Ko Dekha To Yeh Khayal Aaya",
         previewUrl: "https://preview-ht.wynk.in/009153000003715.wav",
         vcode: "009153000003716"
     },
     {
-        cutName: "Tum Ko Dekha To Yeh Khayal Aaya",
+        title: "Tum Ko Dekha To Yeh Khayal Aaya",
         previewUrl: "https://preview-ht.wynk.in/009153000003715.wav",
         vcode: "009153000003717"
     },
     {
-        cutName: "Tum Ko Dekha To Yeh Khayal Aaya",
+        title: "Tum Ko Dekha To Yeh Khayal Aaya",
         previewUrl: "https://preview-ht.wynk.in/009153000003715.wav",
         vcode: "009153000003718"
     }

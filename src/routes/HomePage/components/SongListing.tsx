@@ -2,13 +2,13 @@ import * as React from 'react'
 import { ISingers, IAlbums, ISongs } from '../../../interfaces/music';
 
 interface IProps {
-    musicData:  ISingers[] | IAlbums[] | ISongs[];
+    musicData:  Record<string, ISingers[] | IAlbums[] | ISongs[]>
 }
 
 const SongListing = (props: IProps) =>  {
 
     const { musicData } = props;
-
+        
         return (
           <div>
             {Object.entries(musicData).map(([key, value]) => (
@@ -29,7 +29,7 @@ const SongListing = (props: IProps) =>  {
                     marginLeft: "4rem",
                   }}
                 >
-                  {value.map((song: any) => (
+                  {(value as Array<ISingers|IAlbums|ISongs>).map((song: any) => (
                     <div
                       className="card"
                       style={{
@@ -39,7 +39,7 @@ const SongListing = (props: IProps) =>  {
                       }}
                     >
                       <div className="card-body">
-                        <h5 className="card-title">{song}</h5>
+                        <h5 className="card-title">{song.title}</h5>
                         <h6 className="card-subtitle mb-2 text-muted">
                           {song.language}
                         </h6>

@@ -1,24 +1,20 @@
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
 import actions from './actions';
-import { ISingers } from '../../interfaces/music';
+import { ISingers,IAlbums, IMusicData, ISongs } from '../../interfaces/music';
 
 export interface IReducerState {
   loading: boolean;
   error: string;
   exists: boolean;
-  // data: [];
-  result: ISingers[];
-  
+  result : Record<string, ISingers[] | IAlbums[] | ISongs[] >
 }
 
 const INITIAL_STATE: IReducerState = {
   loading: false,
   error: '',
   exists: false,
-  // data: []
-  result: []
-  
-};
+  result: {}
+}
 
 const reducer = reducerWithInitialState(INITIAL_STATE)
   .case(actions.resetState, (state, payload) => ({
