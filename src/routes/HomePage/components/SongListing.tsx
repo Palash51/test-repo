@@ -27,6 +27,7 @@ const SongListing = (props: IProps) =>  {
                     display: "flex",
                     flexDirection: "row",
                     marginLeft: "4rem",
+                    
                   }}
                 >
                   {(value as Array<ISingers|IAlbums|ISongs>).map((song: any) => (
@@ -39,7 +40,7 @@ const SongListing = (props: IProps) =>  {
                       }}
                     >
                       <div className="card-body">
-                        <h5 className="card-title">{song.title}</h5>
+                        {/* <h5 className="card-title">{song.title}</h5> */}
                         <h6 className="card-subtitle mb-2 text-muted">
                           {song.language}
                         </h6>

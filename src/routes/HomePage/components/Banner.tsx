@@ -1,10 +1,11 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import images from '../../../images/images.jpeg';
-import english from '../../../images/english.jpeg';
-import hindi from '../../../images/english.jpeg';
-import Carousel from "react-bootstrap/Carousel";
 
+import banner1 from '../../../images/banner1.png';
+import bollywood from '../../../images/bollywood.png';
+import singer from '../../../images/singer.png';
+
+import styled from "styled-components";
 
 
 type IStateProps = ReturnType<typeof mapStateToProps>;
@@ -22,58 +23,24 @@ interface IState {
 class Banner extends React.Component<IProps, IState> {
     public render() {
         return (
-          <>
-            {/* <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
-                    <div className="carousel-inner" style={{width: 630, height: 270}}>
-                        <div className="carousel-item red active">
-                            <img className="d-block w-50"  alt="First slide" />
-                         </div>
-                        <div className="carousel-item">
-                            <img className="d-block w-50"  alt="Second slide" />
-                        </div>
-                        <div className="carousel-item">
-                            <img className="d-block w-50"  alt="Third slide" />
-                        </div>
-                    </div>
-            <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span className="sr-only">Previous</span>
-            </a>
-            <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                <span className="sr-only">Next</span>
-            </a>
-            </div> 
-             */}
-
-            <Carousel indicators={false}>
-              {/* <Carousel.Item>
-                <img
-                  className="d-flex w-25"
-                  src={english}
-                  alt="First slide"
-                />
-                
-              </Carousel.Item>
-              <Carousel.Item>
-                <img
-                  className="w-25"
-                  src={hindi}
-                  alt="Third slide"
-                />
-              </Carousel.Item> */}
-              <Carousel.Item>
-                <img
-                style={{width: '60%',
-                    height: 'max-content',
-                    marginLeft: '260px'}}
-                //   className="w-25"
-                  src={images}
-                  alt="Third slide"
-                />
-              </Carousel.Item>
-            </Carousel>
-          </>
+          <div style={{display: 'flex', justifyContent: 'center'}}>
+            {/* <div className="slide-wrap"> */}
+  
+              {/* <a href="#slide-1">1</a>
+              <a href="#slide-2">2</a>
+              <a href="#slide-3">3</a>
+              <a href="#slide-4">4</a>
+              <a href="#slide-5">5</a> */}
+              <div className="slider">
+                <div className="slide" id="slide-1" ><img src={singer} alt={banner1}  className="img-responsive" /></div>
+                <div className="slide" id="slide-2"><img src={banner1} alt={banner1}  className="img-responsive" /></div>
+                <div className="slide" id="slide-3"><img src={bollywood} alt={banner1}  className="img-responsive" /></div>
+                <div className="slide" id="slide-4"><img src={singer} alt={banner1}  className="img-responsive" /></div>
+                <div className="slide" id="slide-5"><img src={banner1} alt={banner1}  className="img-responsive" /></div>
+             </div>
+            {/* </div> */}
+          
+          </div>
         );
     }
 }

@@ -56,8 +56,8 @@ export class LanguageModal extends React.Component<IProps, IState> {
 
     public render() {
         const { showModal } = this.state;
-        // const { preferredLanguages } = this.props;
-        // checked={preferredLanguages.includes('English')}
+        const { preferredLanguages } = this.props;
+        
         return (
             <ModalWrapper>
                <Modal show={showModal} onHide={this.handleClose}>
@@ -68,11 +68,11 @@ export class LanguageModal extends React.Component<IProps, IState> {
                             <div style={{display: 'flex', justifyContent: 'space-around', fontSize: 20}}>
                                 <div className="checkbox">
                                 <label style={{color: '#fff'}}>
-                                    <input type="checkbox"  value="Hindi" onClick={this.selectLanguage} />Hindi</label>
+                                    <input type="checkbox" defaultChecked={preferredLanguages.includes('Hindi')}  value="Hindi" onClick={this.selectLanguage} />Hindi</label>
                                 </div>
                                 <div className="checkbox">
                                 <label style={{color: '#fff'}}>
-                                    <input type="checkbox" value="English" onClick={this.selectLanguage} />English</label>
+                                    <input type="checkbox" defaultChecked={preferredLanguages.includes('English')} value="English" onClick={this.selectLanguage} />English</label>
                                 </div>
                                 
                             </div>

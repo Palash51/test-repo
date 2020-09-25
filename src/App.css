@@ -41,3 +41,37 @@
   background-color: #21252d;
   border-radius: 16px !important;
 }
+
+.slide {
+  width: 1000px;
+  /* border: solid red; */
+  flex-shrink: 0;
+  height: 100%;
+  background-color: coral;
+}
+
+.slider {
+  /* width: 800px; */
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  overflow-y: hidden;
+}
+
+.slides > div {
+  /* CURRENT way. */
+  scroll-snap-align: start;
+}
+
+
+.slider > a {
+    display: none;
+}
+
+.slides > div:target {
+  transform: scale(0.8);
+}
+
