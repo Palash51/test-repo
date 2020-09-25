@@ -1,5 +1,7 @@
 import * as React from 'react'
 import { ISingers, IAlbums, ISongs } from '../../../interfaces/music';
+// import singer from '../../../images/singer.png';
+
 
 interface IProps {
     musicData:  Record<string, ISingers[] | IAlbums[] | ISongs[]>

@@ -43,6 +43,7 @@ type IProps = IStateProps &
 
 interface IState {
     openLanguageModal: boolean;
+    openRegistrationModal: boolean;
     preferredLanguages: string[];
 }
 
@@ -53,6 +54,7 @@ class Header extends React.Component<IProps, IState> {
     
         this.state = {
             openLanguageModal: false,
+            openRegistrationModal: false,
             preferredLanguages: []
         }
     }
@@ -60,6 +62,10 @@ class Header extends React.Component<IProps, IState> {
 
     private getLanguages = () => {
         this.setState({ openLanguageModal : true })
+    }
+
+    private openSignInModal = () => {
+        this.setState({ openRegistrationModal: true })
     }
 
     private toggleModal = (value: boolean) => {
@@ -91,7 +97,10 @@ class Header extends React.Component<IProps, IState> {
                     <div style={{marginRight: 60}}><input type="text" className="fa fa-search" placeholder="Search for music you love!" 
                     style={{width: 320, height: 40, background: '#0c0f12', border: 'none', borderRadius: 10,textAlign: 'center'}}></input></div>
                     <div style={{marginRight: 30, marginTop: 6}} onClick={this.getLanguages}><Language></Language></div>
-                    <div style={{marginRight: 30, marginTop: 6}}>SIGN IN</div>
+                    <Link to={"/login"}>
+                    <div style={{marginRight: 30, marginTop: 6}} onClick={this.openSignInModal}>SIGN IN</div>
+                        </Link>
+                    
                 </div>
             </NavbarWrapper>
             {openLanguageModal && (
