@@ -1,6 +1,6 @@
 import * as React from 'react'
+import { Card, Image, Header } from 'semantic-ui-react'
 import { ISingers, IAlbums, ISongs } from '../../../interfaces/music';
-// import singer from '../../../images/singer.png';
 
 
 interface IProps {
@@ -22,32 +22,22 @@ const SongListing = (props: IProps) =>  {
                     marginTop: "4rem",
                   }}
                 >
-                  <h4>{key}</h4>
+                  <Header as='h1' color='red' style={{textTransform: 'capitalize'}}>{key}</Header>
                 </div>
                 <div
                   style={{
                     display: "flex",
                     flexDirection: "row",
                     marginLeft: "4rem",
-                    
                   }}
                 >
                   {(value as Array<ISingers|IAlbums|ISongs>).map((song: any) => (
-                    <div
-                      className="card"
-                      style={{
-                        width: "10rem",
-                        height: "10rem",
-                        marginRight: "1.2rem",
-                      }}
-                    >
-                      <div className="card-body">
-                        {/* <h5 className="card-title">{song.title}</h5> */}
-                        <h6 className="card-subtitle mb-2 text-muted">
-                          {song.language}
-                        </h6>
-                      </div>
-                    </div>
+                    <Card style={{marginRight: "1.2rem", width: "10rem", height: "12rem", marginTop: "1rem"}}>
+                        <Image src='https://react.semantic-ui.com/images/avatar/large/daniel.jpg' wrapped ui={false} />
+                        <Card.Content>
+                            <Card.Header className="song-header" style={{fontSize: 12, display: '-webkit-box'}}>{song.title}</Card.Header>
+                        </Card.Content>
+                      </Card>
                   ))}
                 </div>
               </div>
