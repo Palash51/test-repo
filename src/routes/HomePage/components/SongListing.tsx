@@ -10,7 +10,12 @@ interface IProps {
 const SongListing = (props: IProps) =>  {
 
     const { musicData } = props;
-        
+
+    const openSongCard = (song:any) => {
+      // open Modal here contains song details
+      
+    }
+
         return (
           <div>
             {Object.entries(musicData).map(([key, value]) => (
@@ -18,22 +23,23 @@ const SongListing = (props: IProps) =>  {
                 <div
                   style={{
                     display: "flex",
-                    marginLeft: "4rem",
-                    marginTop: "4rem",
+                    marginLeft: "2rem",
+                    marginTop: "2rem",
                   }}
                 >
                   <Header as='h1' color='red' style={{textTransform: 'capitalize'}}>{key}</Header>
                 </div>
                 <div
                   style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    marginLeft: "4rem",
+                    padding:12,
+                    whiteSpace:"nowrap",
+                    overflowX: 'auto',
                   }}
                 >
                   {(value as Array<ISingers|IAlbums|ISongs>).map((song: any) => (
-                    <Card style={{marginRight: "1.2rem", width: "10rem", height: "12rem", marginTop: "1rem"}}>
-                        <Image src='https://react.semantic-ui.com/images/avatar/large/daniel.jpg' wrapped ui={false} />
+                    <Card style={{ width: "10rem", height: "14rem", margin: "1rem", display:'inline-block'}} onClick={() => 
+                      openSongCard(song.id)}>
+                        <Image src={song.smallImage} wrapped ui={false} />
                         <Card.Content>
                             <Card.Header className="song-header" style={{fontSize: 12, display: '-webkit-box'}}>{song.title}</Card.Header>
                         </Card.Content>

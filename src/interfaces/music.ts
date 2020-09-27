@@ -7,7 +7,6 @@ export interface ISingers  {
     title: string;
     type: string;
     language: string;
-    
 }
 
 export interface IAlbums {
@@ -24,7 +23,8 @@ export interface ISongs {
     title: string;
     language: string;
     previewUrl: string;
-    vcode: string;
+    id: string;
+    smallImage: string;
 }
 
 export interface IMusicData {

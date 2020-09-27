@@ -12,23 +12,8 @@ import { IRootState } from '../../../reducers';
 
 import  Banner  from './Banner';
 import SongListing from './SongListing';
+import { StickyTopWrapper,  NavbarWrapper } from './style';
 
-
-const StickyTopWrapper = styled.div`
-height: 3px;
-background-color: red;
-`;
-
-
-const NavbarWrapper = styled.div`
-  display:flex;
-  justify-content: space-evenly;
-  width: 100%;
-  background-color: #21252d;
-  overflow: auto;
-  height: 68px;
-  color:#FFF;
-`;
 
 const BannerWrapper = styled.div`
     margin-top: 50px;
@@ -83,7 +68,7 @@ class Header extends React.Component<IProps, IState> {
         
         return (
             <>
-            <StickyTopWrapper></StickyTopWrapper>
+            <StickyTopWrapper></StickyTopWrapper> 
             <NavbarWrapper>
                 <div style={{display: 'flex', marginTop: 16, marginRight: 80, fontSize: '1.25rem'}}>
                 <Link to="/about"><span style={{color:'#FF0000'}}>WYNK</span>MUSIC</Link>

@@ -32,6 +32,7 @@ const Login = () => (
           fluid
           size="large"
           style={{ marginBottom: "32px" }}
+        //   onClick={singInUser}
         >
           Sign in
         </Button>
