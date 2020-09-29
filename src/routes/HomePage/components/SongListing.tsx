@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { Card, Image, Header } from 'semantic-ui-react'
+import { useHistory } from "react-router-dom";
 import { ISingers, IAlbums, ISongs } from '../../../interfaces/music';
+import SongDetails from '../../SongDetails';
 
 
 interface IProps {
@@ -8,14 +10,17 @@ interface IProps {
 }
 
 const SongListing = (props: IProps) =>  {
-
     const { musicData } = props;
+    const [openSongCard, setOpenSongCard] = React.useState(false);
+    const [selectedSongId, setSelectedSongId] = React.useState('');
+    const history = useHistory();
 
-    const openSongCard = (song:any) => {
-      // open Modal here contains song details
-      
+    const openSongDetails = (songId:string) => {
+      setOpenSongCard(true);
+      setSelectedSongId(songId);
+      history.push(`/${songId}`);
     }
-
+        console.log(openSongCard, selectedSongId)
         return (
           <div>
             {Object.entries(musicData).map(([key, value]) => (
@@ -38,7 +43,7 @@ const SongListing = (props: IProps) =>  {
                 >
                   {(value as Array<ISingers|IAlbums|ISongs>).map((song: any) => (
                     <Card style={{ width: "10rem", height: "14rem", margin: "1rem", display:'inline-block'}} onClick={() => 
-                      openSongCard(song.id)}>
+                      openSongDetails(song.id)}>
                         <Image src={song.smallImage} wrapped ui={false} />
                         <Card.Content>
                             <Card.Header className="song-header" style={{fontSize: 12, display: '-webkit-box'}}>{song.title}</Card.Header>
@@ -48,6 +53,9 @@ const SongListing = (props: IProps) =>  {
                 </div>
               </div>
             ))}
+            {openSongCard && (
+              <SongDetails />
+            )}
           </div>
         );
     }

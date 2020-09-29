@@ -19,6 +19,7 @@ const actions = {
   any
   >('bannerListing'),
   bannerListingData: actionCreator<string[]>('bannerListingData'),
+  setLanguage: actionCreator<boolean>('setLanguage'),
   resetState: actionCreator<Partial<IReducerState>>('resetState'),
 };
 
@@ -35,6 +36,10 @@ const thunks = {
           actions.bannerListing.done({ result: data.musicData }),
         );
   },
+  
+  setLanguageAsync: (toggleModal: boolean): IThunk => dispatch => {
+    dispatch(actions.setLanguage(toggleModal))
+  }
 };
 
 export default { ...actions, ...thunks };

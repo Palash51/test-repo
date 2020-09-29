@@ -7,13 +7,15 @@ export interface IReducerState {
   error: string;
   exists: boolean;
   result : Record<string, ISingers[] | IAlbums[] | ISongs[] >
+  openLanguageModal: boolean;
 }
 
 const INITIAL_STATE: IReducerState = {
   loading: false,
   error: '',
   exists: false,
-  result: {}
+  result: {},
+  openLanguageModal: false
 }
 
 const reducer = reducerWithInitialState(INITIAL_STATE)
@@ -35,6 +37,13 @@ const reducer = reducerWithInitialState(INITIAL_STATE)
     return {
       ...state,
       result: payload.result,
+      loading: false,
+    };
+  })
+  .case(actions.setLanguage, (state, toggleModal) => {
+    return {
+      ...state,
+      openLanguageModal: toggleModal,
       loading: false,
     };
   })

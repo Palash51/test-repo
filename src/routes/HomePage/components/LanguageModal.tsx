@@ -4,20 +4,18 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import styled from "styled-components";
 
+
 const ModalWrapper = styled.div`
     background-color: #21252d;
 `;
 
-const CheckBoxWrapper = styled.div`
-    display: flex; 
-    justifyContent: space-around; 
-    fontSize: 20;
-`;
+type IStateProps = ReturnType<typeof mapStateToProps>;
+type IDispatchProps = typeof mapDispatchToProps;
 
-interface IProps {
-    toggleModal: (value: boolean) => void;
+interface IProps extends IStateProps, IDispatchProps {
     selectedLanguages: (languages: string[]) => void;
     preferredLanguages: string[];
+    toggleModal: (value: boolean) => void;
 }
 
 interface IState {
@@ -35,7 +33,6 @@ export class LanguageModal extends React.Component<IProps, IState> {
             selectedLanguages: []
         }
     }
-    
 
     private handleClose = () => {
         this.setState({ showModal: false})
@@ -97,7 +94,7 @@ const mapStateToProps = () => ({
 })
 
 const mapDispatchToProps = {
-    
+
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LanguageModal)
