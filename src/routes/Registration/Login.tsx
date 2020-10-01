@@ -2,7 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button, Form, Grid, Header } from "semantic-ui-react";
 
-const Login = () => (
+
+const Login: React.FC = () => {
+  debugger
+  return (
   <Grid textAlign="center" style={{ height: "100vh", width: "70vh" }} verticalAlign="middle">
     <Grid.Column>
       <Header
@@ -42,6 +45,7 @@ const Login = () => (
       </p>
     </Grid.Column>
   </Grid>
-);
+  )
+}
 
 export default Login;

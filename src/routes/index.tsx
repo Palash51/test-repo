@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import  HomePage  from './HomePage';
 import Navbar from './HomePage/components/Navbar';
+import Footer from './HomePage/components/Footer';
 import Login from './Registration/Login';
 import Register from './Registration/Register';
 import SongDetails from './SongDetails';
@@ -19,16 +20,19 @@ font-family: sans-serif;
 //   background-color: #ff9900;
 `;
 
+
 export default () => (
     <BrowserRouter>
         <Navbar />
         <Switch>
-            <Route exact path="/" component={HomePage} />
+            <Route exact path="/home" component={HomePage} />
+            <Route exact path="/song/:songId" component={SongDetails} />
             <RegistrationWrapper>
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
-            <Route exact path="/:songId" component={SongDetails} />
             </RegistrationWrapper>
+            
         </Switch>
+        <Footer />
         </BrowserRouter>
 )

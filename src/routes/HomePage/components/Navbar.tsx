@@ -1,26 +1,32 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useHistory } from "react-router-dom";
 import store from '../../../reducers/store';
 import  actions from '../../../reducers/musicListing/actions';
 import { Language } from '@material-ui/icons';
 import { StickyTopWrapper,  NavbarWrapper } from './style';
 
-const Navbar = ()  => {
+const Navbar: React.FC = () => {
     // const languageModal = useSelector(state => state)
+    const history = useHistory();
     const getLanguages = () => {
         store.dispatch<any>(actions.setLanguageAsync(true));
     }
+
+    const openSignInModal = () => {
+        history.push(`/login`);
+    }
     
     return (
-        <div>
+        <>
             <StickyTopWrapper></StickyTopWrapper> 
             <NavbarWrapper>
                 <div style={{display: 'flex', marginTop: 16, marginRight: 80, fontSize: '1.25rem'}}>
-                <Link to="/about"><span style={{color:'#FF0000'}}>WYNK</span>MUSIC</Link>
+                <Link to="/home"><span style={{color:'#FF0000'}}>WYNK</span>MUSIC</Link>
                 </div>
                 <div style={{display: 'flex', marginTop: 20, marginRight: 60, fontSize: 14 ,fontWeight: 500, color:'#FF0000'}}>
-                    <div style={{marginRight: 30}}><Link to="/" style={{color:'#FFF'}}>HOME</Link></div>
+                    <div style={{marginRight: 30}}><Link to="/home" style={{color:'#FFF'}}>HOME</Link></div>
                     <div style={{marginRight: 30}}><Link to="/" style={{color:'#FFF'}}>MY MUSIC</Link></div>
                     <div style={{marginRight: 30}}><Link to="/" style={{color:'#FFF'}}>DOWNLOAD APP</Link></div>
                 </div>
@@ -32,15 +38,15 @@ const Navbar = ()  => {
                     >
                         <Language></Language>
                     </div>
-                    <Link to={"/login"}>
+                    <Link to="/login">
                     <div style={{marginRight: 30, marginTop: 6}} 
-                    // onClick={this.openSignInModal}
+                    // onClick={openSignInModal}
                     >SIGN IN</div>
-                        </Link>
+                    </Link>
                     
                 </div>
             </NavbarWrapper>
-        </div>
+        </>
     )
 }
 
