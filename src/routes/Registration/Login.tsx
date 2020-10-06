@@ -4,7 +4,6 @@ import { Button, Form, Grid, Header } from "semantic-ui-react";
 
 
 const Login: React.FC = () => {
-  debugger
   return (
   <Grid textAlign="center" style={{ height: "100vh", width: "70vh" }} verticalAlign="middle">
     <Grid.Column>
