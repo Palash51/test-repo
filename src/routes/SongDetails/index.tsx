@@ -54,7 +54,7 @@ const SongDetails: React.FC<IProps> = (props) => {
               ui={false}
             />
           </Card>
-          <div style={{ marginLeft: 54, marginTop: 14 }}>
+          <div style={{ marginLeft: 54, marginTop: 14, padding: 16 }}>
             <Header as="h1" style={{ color: "#f7f5f5", fontSize: 36 }}>
               Sawan Mein Lag Gayi Aag
             </Header>
@@ -78,7 +78,6 @@ const SongDetails: React.FC<IProps> = (props) => {
             </div>
             <div
               style={{
-                marginLeft: 8,
                 marginTop: 24,
                 display: "flex",
                 justifyContent: "space-between",
@@ -145,7 +144,17 @@ const SongDetails: React.FC<IProps> = (props) => {
                 />
               </div>
             </div>
+            <div>
+            <Header size='medium' style={{ color: "#f7f5f5", fontSize: 20, marginTop: 36 }}>Ginny weds sunny Songs</Header>
+            </div>
           </div>
+        </div>
+        <div>
+        {/* <Card.Group>
+            <Card fluid color='red' header='Option 1' />
+            <Card fluid color='orange' header='Option 2' />
+            <Card fluid color='yellow' header='Option 3' />
+        </Card.Group> */}
         </div>
       </Wrapper>
     );
