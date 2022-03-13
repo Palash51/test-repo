@@ -3,15 +3,15 @@ import { Location } from 'redux-little-router';
 import { ThunkAction } from 'redux-thunk';
 
 import {
-  reducer as musicListingReducer,
-} from './musicListing';
+  reducer as moviesListingReducer,
+} from './moviesListing';
 
 import {
-  IReducerState as IMusicListingState,
-} from './musicListing/reducer'
+  IReducerState as IMoviesListingState,
+} from './moviesListing/reducer'
 
 export interface IRootState {
-  musicListing: IMusicListingState
+  moviesListing: IMoviesListingState
 }
 
 
@@ -25,7 +25,7 @@ export const rootReducer: typeof appReducer = (state, action) => {
 };
 
 const appReducer = combineReducers<IRootState>({
-  musicListing: musicListingReducer
+  moviesListing: moviesListingReducer
   // toast: toastReducer,
 });
 

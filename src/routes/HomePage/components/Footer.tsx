@@ -21,9 +21,9 @@ const Footer = ()  => {
                 >
                 <Card.Content style={{display: 'flex', justifyContent: 'space-between'}}>
                     <div>
-                        <Card.Header style={{color: '#f7f5f5', fontSize: 21, lineHeight: 1.2}}>Best way to listen music</Card.Header>
+                        <Card.Header style={{color: '#f7f5f5', fontSize: 21, lineHeight: 1.2}}>Best way to watch movies</Card.Header>
                         <Card.Description style={{color: '#f7f5f5'}}>
-                        Don’t forget to install Wynk Music on your mobile phones
+                        Don’t forget to install Dynamics Movies on your mobile phones
                         </Card.Description>
                     </div>
                     {/* <div style={{ display: 'flex', width: 1 }}> */}
@@ -125,7 +125,7 @@ const Footer = ()  => {
                     {/* Footer Bottom */}
                     <div className="footer-bottom">
                         <p className="text-xs-center">
-                            &copy;{new Date().getFullYear()} Music App - All Rights Reserved.
+                            &copy;{new Date().getFullYear()} Movies App - All Rights Reserved.
                         </p>
 
                     </div>

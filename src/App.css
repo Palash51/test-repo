@@ -81,7 +81,7 @@
   transform: scale(0.8);
 }
 
-.song-header {
+.movie-header {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

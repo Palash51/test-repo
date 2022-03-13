@@ -59,7 +59,7 @@ export class LanguageModal extends React.Component<IProps, IState> {
             <ModalWrapper>
                <Modal show={showModal} onHide={this.handleClose}>
                     <Modal.Header closeButton>
-                    <Modal.Title style={{color: '#fff'}}>Select Music Language[s]</Modal.Title>
+                    <Modal.Title style={{color: '#fff'}}>Select Movies Language[s]</Modal.Title>
                     </Modal.Header>
                     <Modal.Body style={{height: 500}}>
                             <div style={{display: 'flex', justifyContent: 'space-around', fontSize: 20}}>

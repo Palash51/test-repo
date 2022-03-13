@@ -1,12 +1,13 @@
+/* eslint-disable */
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
 import actions from './actions';
-import { ISingers,IAlbums, IMusicData, ISongs } from '../../interfaces/music';
+import { IMovies } from '../../interfaces/movie';
 
 export interface IReducerState {
   loading: boolean;
   error: string;
   exists: boolean;
-  result : Record<string, ISingers[] | IAlbums[] | ISongs[] >
+  result : IMovies[];
   openLanguageModal: boolean;
 }
 
@@ -14,7 +15,7 @@ const INITIAL_STATE: IReducerState = {
   loading: false,
   error: '',
   exists: false,
-  result: {},
+  result: [],
   openLanguageModal: false
 }
 
@@ -30,10 +31,6 @@ const reducer = reducerWithInitialState(INITIAL_STATE)
     error: '',
   }))
   .case(actions.bannerListing.done, (state, payload) => {
-      
-    // const { result } = payload;
-    // const { result: [result] } = payload;
-    // debugger
     return {
       ...state,
       result: payload.result,

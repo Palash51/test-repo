@@ -1,16 +1,11 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import styled from "styled-components";
 
 import { LanguageModal } from './components/LanguageModal'
-import { actions as bannerListing } from '../../reducers/musicListing/'
+import { actions as bannerListing } from '../../reducers/moviesListing'
 import { IRootState } from '../../reducers';
-import  Banner  from './components/Banner';
-import SongListing from './components/SongListing';
+import MoviesListing from './components/MoviesListing';
 
-const BannerWrapper = styled.div`
-    margin-top: 50px;
-`;
 
 type IStateProps = ReturnType<typeof mapStateToProps>;
 type IDispatchProps = typeof mapDispatchToProps;
@@ -35,20 +30,24 @@ class HomePage extends React.Component<IProps, IState> {
         }
     }
 
-    private toggleModal = (value: boolean) => {
+    toggleModal = (value: boolean) => {
         this.props.setLanguageAsync(value)
     }
 
-    private openSignInModal = () => {
+    openSignInModal = () => {
         this.setState({ openRegistrationModal: true })
     }
 
-    private selectedLanguages = (languages: string[]) => {
+    componentDidMount = () => {
+        this.props.bannerListingData([])
+    }
+
+    selectedLanguages = (languages: string[]) => {
         this.setState({ preferredLanguages: languages})
         this.props.bannerListingData(languages)
     }
 
-    public render() {
+    render() {
         const { preferredLanguages } = this.state;
         const { loading, error, result, openLanguageModal } = this.props;
         return (
@@ -59,12 +58,9 @@ class HomePage extends React.Component<IProps, IState> {
                 selectedLanguages={(languages) => this.selectedLanguages(languages)}
                 preferredLanguages={preferredLanguages}
             />)}
-            <BannerWrapper>
-                <Banner />
-            </BannerWrapper>
             {Object.keys(result).length > 0 && (
-            <SongListing 
-            musicData={result}
+            <MoviesListing 
+            moviesData={result}
             />
             )}
         </>
@@ -73,7 +69,7 @@ class HomePage extends React.Component<IProps, IState> {
 }
 
 const mapStateToProps = (state: IRootState) => ({
-    ...state.musicListing
+    ...state.moviesListing
 })
 
 const mapDispatchToProps = {

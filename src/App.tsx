@@ -24,7 +24,6 @@ function App() {
       <div className="App-test">
       <ThemeProvider theme={theme === 'dark' ? lightTheme : darkTheme}> 
         <GlobalStyles /> 
-         {/* <button onClick={toggleTheme}>Toggle theme</button>  */}
           <Routes />
         </ThemeProvider>
         </div>
